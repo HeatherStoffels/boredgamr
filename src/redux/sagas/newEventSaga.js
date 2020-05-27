@@ -8,7 +8,7 @@ function* newEventSaga() {
 function* newEvent (action){
 
     try{
-        yield axios.post('/create', {host_id: 1, game_name: "King of Tokyo", date_time: "2020-06-13 20:00:00-05" });
+        yield axios.post('/create', {host_id: action.payload.host_id, game_name: action.payload.game_name, date_time: action.payload.date_time });
         yield put({type: 'CREATE_EVENT', payload: action.payload});
         
     }catch (error) {
