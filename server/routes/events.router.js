@@ -4,7 +4,6 @@ const router = express.Router();
 
 
     router.get('/', (req, res) => {
-        console.log("request received in events get");
         const sqlText = `SELECT * FROM "events"`;
         pool
           .query(sqlText)
