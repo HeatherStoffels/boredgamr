@@ -47,6 +47,9 @@ class CreateEvent extends Component {
           <option value="Ticket to Ride">Ticket to Ride</option>
           <option value="Terra Mystica">Terra Mystica</option>
           <option value="King of Tokyo">King of Tokyo</option>
+          <option value="Lords of Waterdeep">Lords of Waterdeep</option>
+          <option value="Through the Ages">Through the Ages</option>
+          <option value="Terraforming Mars">Terraforming Mars</option>
         </select>
         <br />
         <h1>Pick a date and time!</h1>
