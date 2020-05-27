@@ -10,9 +10,9 @@ class EventList extends Component {
     return (
       <div>
          <h2>My Event List</h2>
-          <h2> {this.props.events.map((event) => {
+          <h4> {this.props.events.map((event) => {
                         return ( <EventItem key={event.id} event={event} />);
-                    })}</h2> 
+                    })}</h4> 
 
       </div>
     );

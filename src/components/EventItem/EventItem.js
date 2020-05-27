@@ -5,7 +5,9 @@ class EventItem extends Component {
     const { event } = this.props;
     return (
       <div>
-        <h2>{event.game_name}</h2>
+        <h4>{event.game_name}</h4>
+        <h4>{event.date_time}</h4>
+
       </div>
     );
   }

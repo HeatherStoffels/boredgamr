@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {
     Link,
   } from 'react-router-dom';
+  import EventList from '../EventList/EventList'
 //   import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 //   import CreateEvent from '../CreateEvent/CreateEvent';
   
@@ -17,8 +18,9 @@ const handleClick = () =>{
 // and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
   <div>
+      
     <h1 id="welcome">Welcome, {props.user.username}!</h1>
-    <h2>Your list of events will go here</h2>
+    <EventList />
    
    <Link to="/create" ><button onClick={handleClick}>Create Event</button></Link> 
     {/* <p>Your ID is: {props.user.id}</p>
