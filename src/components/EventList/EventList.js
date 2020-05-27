@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import EventItem from '../EventItem/EventItem';
 
 
-class EventsList extends Component {
- 
+class EventList extends Component {
+
+
   render() {
     return (
       <div>
-          <header>My Events List</header>
-       
+         <h2>My Event List</h2>
+          <h2> {this.props.events.map((event) => {
+                        return ( <EventItem key={event.id} event={event} />);
+                    })}</h2> 
 
       </div>
     );
@@ -20,7 +24,8 @@ class EventsList extends Component {
 // const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
   errors: state.errors,
+  events: state.events
  
 });
 
-export default connect(mapStateToProps)(EventsList);
+export default connect(mapStateToProps)(EventList);

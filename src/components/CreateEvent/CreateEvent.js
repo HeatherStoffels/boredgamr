@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {
-    HashRouter as Router,
     Link,
   } from 'react-router-dom';
 
@@ -11,7 +10,7 @@ class CreateEvent extends Component {
   state = {
     host_id: this.props.user.id,
     game_name: "",
-    date_time: new Date,
+    date_time: new Date(),
   };
   handleChange = (event, property) => {
     

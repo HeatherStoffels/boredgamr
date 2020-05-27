@@ -16,8 +16,9 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
-import EventsList from '../EventsList/EventsList';
+import EventList from '../EventList/EventList';
 import CreateEvent from '../CreateEvent/CreateEvent';
+
 
 import './App.css';
 
@@ -67,7 +68,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/events"
-              component={EventsList}
+              component={EventList}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
