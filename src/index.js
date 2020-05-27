@@ -20,44 +20,16 @@ const middlewareList =
     ? [sagaMiddleware, logger]
     : [sagaMiddleware];
 
-const initialState = {
-  user: [
-    {
-      id: 1,
-      name: "Oliver",
-    
-    },
-    {
-      id: 2,
-      name: "Rachel",
-    },
-  ],
-  events: [
-    {
-      id: 1,
-      boardGamePlaying: 1,
-      attending: [
-        {
-          id: 1,
-          isApproved: true,
-        },
-        {
-          id: 2,
-          isApproved: false,
-        },
-      ],
-      address: "10 W 10th",
-      date: "2020-05-30",
-      host: 1,
-    },
-  ],
-};
+// const initialState = {
+//   user: [],
+//   events: [],
+// };
 
 const store = createStore(
   // tells the saga middleware to use the rootReducer
   // rootSaga contains all of our other reducers
   rootReducer,
-  initialState,
+  
   // adds all middleware to our project including saga and logger
 
   applyMiddleware(...middlewareList)

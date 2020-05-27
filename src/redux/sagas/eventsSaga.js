@@ -7,7 +7,7 @@ function* eventsSaga() {
   }
 function* fetchEvents (action){
     try{
-        const response = yield axios.get("/events");
+        const response = yield axios.get('/events');
         yield put({ type: "FETCH_EVENTS", payload: response.data });
     }catch (error) {
         console.log('Error with fetching events:', error);

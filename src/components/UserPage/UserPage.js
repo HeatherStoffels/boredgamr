@@ -1,7 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import LogOutButton from "../LogOutButton/LogOutButton";
+import {
+    HashRouter as Router,
+    Route,
+    Link,
+    Redirect,
+    Switch,
+  } from 'react-router-dom';
+  import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+  import CreateEvent from '../CreateEvent/CreateEvent';
 
+// import LogOutButton from "../LogOutButton/LogOutButton";
+
+const handleClick = () =>{
+
+}
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
@@ -10,6 +23,7 @@ const UserPage = (props) => (
     <h1 id="welcome">Welcome, {props.user.username}!</h1>
     <h2>Your list of events will go here</h2>
     <h2>{JSON.stringify(props.events)}</h2> 
+   <Link to="/create" ><button onClick={handleClick}>Create Event</button></Link> 
     {/* <p>Your ID is: {props.user.id}</p>
     <LogOutButton className="log-in" /> */}
   </div>
