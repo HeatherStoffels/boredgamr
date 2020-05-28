@@ -10,7 +10,6 @@ class Details extends Component {
     return (
       <div>
         <h1>Details Page</h1>
-        
 
       </div>
     );
@@ -21,6 +20,7 @@ const mapStateToProps = (state) => {
     return {
       user: state.user,
       events: state.events,
+      boardgame: state.boardgame,
     };
   };
   
