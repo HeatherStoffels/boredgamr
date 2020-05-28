@@ -14,13 +14,13 @@ class CreateEvent extends Component {
 
   state = {
     host_id: this.props.user.id,
-    game_name: "",
+    game_id: '',
     date_time: new Date(),
   };
   handleChange = (event, property) => {
     
     switch (property) {
-      case "game_name":
+      case "game_id":
         return this.setState({
           [property]: event.target.value,
         });
@@ -44,21 +44,19 @@ class CreateEvent extends Component {
       <div>
         <header>Create new events page</header>
         <h1>Pick a game</h1>
-        <h4> {this.props.boardgame.map((game) => {
-                        return ( game={game} );
-                    })}</h4> 
+        {/* <h4> {this.props.boardgame.map((game) => {
+                        return ( <div> <p key={game.id}>{game.name}</p> <img src={game.picture} /> /></div>);
+                    })}</h4>  */}
+                  
     
         <select
           id="game_name"
-          onChange={(event) => this.handleChange(event, "game_name")}
-        >
-          <option value="">Select a game</option>
-          <option value={1}>Ticket to Ride</option>
-          <option value="Terra Mystica">Terra Mystica</option>
-          <option value="King of Tokyo">King of Tokyo</option>
-          <option value="Lords of Waterdeep">Lords of Waterdeep</option>
-          <option value="Through the Ages">Through the Ages</option>
-          <option value="Terraforming Mars">Terraforming Mars</option>
+          onChange={(event) => this.handleChange(event, "game_id")}
+        >{this.props.boardgame.map((game)=>{
+            return (<option value={game.id}>{game.name}</option>)
+        })}
+         
+         
         </select>
         <br />
         <h1>Pick a date and time!</h1>
