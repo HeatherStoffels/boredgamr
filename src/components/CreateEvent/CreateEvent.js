@@ -7,6 +7,11 @@ import {
   } from 'react-router-dom';
 
 class CreateEvent extends Component {
+
+    componentDidMount(){
+      this.props.dispatch({type:'FETCH_ALL_GAMES'});
+    }
+
   state = {
     host_id: this.props.user.id,
     game_name: "",
@@ -39,12 +44,16 @@ class CreateEvent extends Component {
       <div>
         <header>Create new events page</header>
         <h1>Pick a game</h1>
+        <h4> {this.props.boardgame.map((game) => {
+                        return ( game={game} );
+                    })}</h4> 
+    
         <select
           id="game_name"
           onChange={(event) => this.handleChange(event, "game_name")}
         >
           <option value="">Select a game</option>
-          <option value="Ticket to Ride">Ticket to Ride</option>
+          <option value={1}>Ticket to Ride</option>
           <option value="Terra Mystica">Terra Mystica</option>
           <option value="King of Tokyo">King of Tokyo</option>
           <option value="Lords of Waterdeep">Lords of Waterdeep</option>
@@ -69,14 +78,13 @@ class CreateEvent extends Component {
   }
 }
 
-// Instead of taking everything from state, we just want the error messages.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({errors}) => ({ errors });
 
 const mapStateToProps = (state) => ({
-  errors: state.errors,
+  
   events: state.events,
   user: state.user,
+  boardgame: state.boardgame,
+  
 });
 
 export default connect(mapStateToProps)(CreateEvent);

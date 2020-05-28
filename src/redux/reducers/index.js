@@ -3,6 +3,7 @@ import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
 import user from './userReducer';
 import events from './eventsReducer';
+import game from './gameReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
   user, // will have an id and username if someone is logged in
   events,// will have an id attached to either hosting or attending
+  game, // will have a game_name stored in DB
 });
 
 export default rootReducer;

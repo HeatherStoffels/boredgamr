@@ -18,6 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import EventList from '../EventList/EventList';
 import CreateEvent from '../CreateEvent/CreateEvent';
+import Details from '../Details/Details'
 
 
 import './App.css';
@@ -64,6 +65,11 @@ class App extends Component {
               exact
               path="/info"
               component={InfoPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/details"
+              component={Details}
             />
             <ProtectedRoute
               exact

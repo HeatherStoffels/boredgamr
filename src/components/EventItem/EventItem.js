@@ -1,13 +1,20 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class EventItem extends Component {
+  handleClick = () => {
+    console.log("in handleClick", this.props.event);
+    this.props.dispatch({ type: "FETCH_GAME", payload: 1 });
+  };
   render() {
     const { event } = this.props;
     return (
       <div>
-        <h4>{event.game_name}</h4>
+        <Link to="/details">
+          <button onClick={this.handleClick}>{event.game_name}</button>
+        </Link>
         <h4>{event.date_time}</h4>
-
       </div>
     );
   }
@@ -22,4 +29,4 @@ class EventItem extends Component {
 //   user: state.user,
 // });
 
-export default EventItem;
+export default connect()(EventItem);
