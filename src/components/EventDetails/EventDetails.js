@@ -1,16 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 class EventDetails extends Component {
 
-    
+    componentDidMount(){
+this.props.dispatch({type:'GET_GAME_BY_ID', payload: 1})
+this.props.dispatch({type: 'GET_EVENT_BY_ID', payload: 1})
+    }
   render() {
    
     return (
       <div>
         <h1>Details Page</h1>
-        <h1>{this.props.boardgame.name}</h1>
+    <p>{this.props.eventDetails.event_id}</p>
+    <p>{this.props.eventDetails.game_name}</p>
+    <p>{this.props.eventDetails.date_time}</p>
+    <Link><p>{this.props.eventDetails.link}</p></Link>
+    <img src={this.props.eventDetails.picture} alt={this.props.eventDetails.game_name} />
+    <p>{this.props.eventDetails.number_of_players}</p>
+
       </div>
     );
   }
@@ -19,8 +29,8 @@ class EventDetails extends Component {
 const mapStateToProps = (state) => {
     return {
       user: state.user,
-      events: state.events,
-      boardgame: state.boardgame,
+      eventDetails: state.eventDetails,
+      gameDetails: state.gameDetails,
     };
   };
   

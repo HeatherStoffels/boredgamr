@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class EventList extends Component {
-  handleClick = () => {};
+  handleClick = () => {
+
+  };
 
   render() {
     return (
@@ -11,7 +13,7 @@ class EventList extends Component {
         <h2>Event List</h2>
         <ul>
           {this.props.events.map((event) => (
-            <li key={event.id}>
+            <li key={event.events_id}>
               {event.username} - {event.name} - {event.date_time} -
               <Link to="/details">
                 <button onClick={this.handleClick}>More Info</button>

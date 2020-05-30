@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 
 import rootReducer from "./redux/reducers"; // imports ./redux/reducers/index.js
 import rootSaga from "./redux/sagas"; // imports ./redux/sagas/index.js
@@ -19,7 +19,9 @@ const withDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // logger will only be added to your project if your in development mode
 const middlewareList =
   process.env.NODE_ENV === "development"
-    ? [sagaMiddleware, logger]
+    ? [sagaMiddleware
+        // , logger
+    ]
     : [sagaMiddleware];
 
 // const initialState = {
