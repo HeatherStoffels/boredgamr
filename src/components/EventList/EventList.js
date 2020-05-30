@@ -9,7 +9,7 @@ class EventList extends Component {
         <h2>Event List</h2>
         <ul>
             {this.props.events.map(event=>(
-                <li key={event.id}>{event.host_id} - {event.id} - {event.date_time}</li>
+                <li key={event.id}>{event.username} - {event.name} - {event.date_time}</li>
             ))}
         </ul>
       </div>
