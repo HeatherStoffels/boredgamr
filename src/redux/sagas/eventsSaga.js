@@ -16,6 +16,7 @@ function* getEvents(action) {
 function* getEventById(action) {
   try {
     const id = action.payload;
+    console.log(id);
     const response = yield axios.get(`/details/${id}`);
     yield put({ type: "GET_EVENT_BY_ID_SUCCESSFUL", payload: response.data });
   } catch (error) {
