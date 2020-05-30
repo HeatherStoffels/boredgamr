@@ -5,6 +5,7 @@ import user from './userReducer';
 import events from './eventsReducer';
 import game from './gameReducer';
 import boardgame from './allGamesReducer';
+import myEvents from './myEventsReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   events,// will have an id attached to either hosting or attending
   game, // will have a game_name stored in DB
   boardgame,
+  myEvents, // will call for all events user is attending
 });
 
 export default rootReducer;

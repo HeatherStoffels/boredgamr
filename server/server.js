@@ -14,6 +14,7 @@ const eventsRouter = require('./routes/events.router');
 const newEventRouter = require('./routes/newEvent.router');
 const gameRouter = require('./routes/game.router');
 const allgamesRouter = require('./routes/allgames.router');
+const myEventsRouter = require('./routes/myEvents.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,6 +33,7 @@ app.use('/events', eventsRouter);
 app.use('/create', newEventRouter);
 app.use('/game', gameRouter);
 app.use('/allgames', allgamesRouter);
+app.use('/myEvents', myEventsRouter);
 
 // Serve static files
 app.use(express.static('build'));

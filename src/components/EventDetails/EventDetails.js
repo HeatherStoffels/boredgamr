@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 
-class Details extends Component {
+class EventDetails extends Component {
 
     
   render() {
@@ -10,7 +10,7 @@ class Details extends Component {
     return (
       <div>
         <h1>Details Page</h1>
-
+        <h1>{this.props.boardgame.name}</h1>
       </div>
     );
   }
@@ -25,4 +25,4 @@ const mapStateToProps = (state) => {
   };
   
   // this allows us to use <App /> in index.js
-  export default connect(mapStateToProps)(Details);
+  export default connect(mapStateToProps)(EventDetails);

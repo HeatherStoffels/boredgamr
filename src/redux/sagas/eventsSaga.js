@@ -3,14 +3,15 @@ import axios from 'axios';
 
 
 function* eventsSaga() {
-    yield takeEvery('getEvents', fetchEvents);
+    yield takeEvery('GET_EVENTS', getEvents);
   }
-function* fetchEvents (action){
+function* getEvents (action){
     try{
         const response = yield axios.get('/events');
-        yield put({ type: "FETCH_EVENTS", payload: response.data });
+        yield put({ type: "GET_EVENTS_SUCCESSFUL", payload: response.data });
     }catch (error) {
-        console.log('Error with fetching events:', error);
+        yield put({ type: "GET_EVENTS_FAILED", payload: error});
+  
       }
 }
 
