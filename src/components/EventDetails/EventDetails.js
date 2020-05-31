@@ -3,13 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class EventDetails extends Component {
-  componentDidMount() {
-    this.props.dispatch({ type: "GET_GAME_BY_ID", payload: 1 });
-    this.props.dispatch({
-      type: "GET_EVENT_BY_ID",
-      payload: 1,
-    });
-  }
+ 
   render() {
     return (
       <div>

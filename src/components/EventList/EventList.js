@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class EventList extends Component {
-  handleClick = () => {
-
+  handleClick = (e) => {
+    console.log(e.target.value);
+    this.props.dispatch({ type: "GET_EVENT_BY_ID", payload: e.target.value });
   };
 
   render() {
@@ -16,7 +17,9 @@ class EventList extends Component {
             <li key={event.events_id}>
               {event.username} - {event.name} - {event.date_time} -
               <Link to="/details">
-                <button onClick={this.handleClick}>More Info</button>
+                <button value={parseInt(event.events_id)} onClick={this.handleClick}>
+                  More Info
+                </button>
               </Link>
             </li>
           ))}
