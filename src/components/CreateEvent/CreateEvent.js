@@ -9,7 +9,7 @@ import {
 class CreateEvent extends Component {
 
     componentDidMount(){
-      this.props.dispatch({type:'FETCH_ALL_GAMES'});
+      this.props.dispatch({type:'GET_ALL_GAMES'});
     }
 
   state = {
@@ -25,7 +25,6 @@ class CreateEvent extends Component {
           [property]: event.target.value,
         });
       case "date_time":
-        console.log("in date_time", event);
         return this.setState({
           [property]: event
         });
@@ -34,9 +33,10 @@ class CreateEvent extends Component {
     }
   };
   handleClick = () => {
-    console.log(this.state);
+    
     this.props.dispatch({type: "NEW_EVENT", payload: this.state});
-    // alert("Your event has been created!");
+   
+  
   };
 
   render() {
@@ -44,16 +44,14 @@ class CreateEvent extends Component {
       <div>
         <header>Create new events page</header>
         <h1>Pick a game</h1>
-        {/* <h4> {this.props.boardgame.map((game) => {
-                        return ( <div> <p key={game.id}>{game.name}</p> <img src={game.picture} /> /></div>);
-                    })}</h4>  */}
+      
                   
     
         <select
           id="game_name"
           onChange={(event) => this.handleChange(event, "game_id")}
-        >{this.props.boardgame.map((game)=>{
-            return (<option value={game.id}>{game.name}</option>)
+        >{this.props.allBoardgames.map((game)=>{
+            return (<option key={game.id} value={game.id}>{game.name}</option>)
         })}
          
          
@@ -81,7 +79,7 @@ const mapStateToProps = (state) => ({
   
   events: state.events,
   user: state.user,
-  boardgame: state.boardgame,
+  allBoardgames: state.allBoardgames,
   
 });
 

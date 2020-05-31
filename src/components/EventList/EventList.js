@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 class EventList extends Component {
   handleClick = (e) => {
-    console.log(e.target.value);
+    
     this.props.dispatch({ type: "GET_EVENT_BY_ID", payload: e.target.value });
   };
 

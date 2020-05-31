@@ -1,13 +1,11 @@
+const allBoardgamesReducer = (state = [], action) => {
+  switch (action.type) {
+    case "GET_ALL_GAMES_SUCCESSFUL":
+    case "GET_ALL_GAMES_FAILED":
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
-const allGamesReducer = (state = [], action) => {
-  
-    switch (action.type) {
-      case "FETCH_ALL_GAMES_BY_ID":
-        return action.payload;
-      default:
-        return state;
-    }
-  };
-
-
-  export default allGamesReducer;
+export default allBoardgamesReducer;

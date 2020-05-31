@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+
 
 class EventDetails extends Component {
  
@@ -11,9 +11,9 @@ class EventDetails extends Component {
         <p>{this.props.eventDetails.event_id}</p>
         <p>{this.props.eventDetails.game_name}</p>
         <p>{this.props.eventDetails.date_time}</p>
-        {/* <Link to={this.props.eventDetails.link}>
+        <a href={this.props.eventDetails.link} target="_blank">
           <p>Game Info</p>
-        </Link> */}
+        </a>
         <img
           src={this.props.eventDetails.picture}
           alt={this.props.eventDetails.game_name}
