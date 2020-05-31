@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+
 import EventList from "../EventList/EventList";
 import UserEventsList from "../UserEventsList/UserEventsList";
 
-const handleClick = () => {};
+
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -15,9 +15,6 @@ const UserPage = (props) => (
 
     <UserEventsList />
     <EventList />
-    <Link to="/create">
-      <button onClick={handleClick}>Create Event</button>
-    </Link>
   </div>
 );
 // will display users games they are attending and a list of events they can join

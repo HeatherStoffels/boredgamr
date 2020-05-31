@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-
 class EventDetails extends Component {
- 
   render() {
     return (
       <div>
@@ -11,12 +9,17 @@ class EventDetails extends Component {
         <p>{this.props.eventDetails.event_id}</p>
         <p>{this.props.eventDetails.game_name}</p>
         <p>{this.props.eventDetails.date_time}</p>
-        <a href={this.props.eventDetails.link} target="_blank">
+        <a
+          href={this.props.eventDetails.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <p>Game Info</p>
         </a>
         <img
           src={this.props.eventDetails.picture}
           alt={this.props.eventDetails.game_name}
+          width="100px"
         />
         <p>{this.props.eventDetails.number_of_players}</p>
       </div>
