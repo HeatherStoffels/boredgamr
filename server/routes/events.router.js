@@ -28,5 +28,15 @@ router.delete("/:id", (req, res)=>{
         res.sendStatus(500);
     })
 })
+router.put("/:id", (req, res)=>{
+    const {date_time, game_id} = req.body
+    const sqlText = `update events set date_time = $2, game_id = $3
+    where events.id = $1 ;`;
+    pool.query(sqlText,[req.params.id, date_time, game_id]).then(()=>{
+        res.sendStatus(200);
+    }).catch((error)=>{
+        res.sendStatus(500);
+    })
+})
 
 module.exports = router;
