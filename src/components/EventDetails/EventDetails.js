@@ -22,6 +22,7 @@ class EventDetails extends Component {
           width="100px"
         />
         <p>{this.props.eventDetails.number_of_players}</p>
+        <button>Join Gamenight!</button>
       </div>
     );
   }

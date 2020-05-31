@@ -5,6 +5,7 @@ function* eventsSaga() {
   yield takeEvery("GET_EVENTS", getEvents);
   yield takeEvery("GET_EVENT_BY_ID", getEventById);
   yield takeEvery("DELETE_EVENT_BY_ID", deleteEventById);
+  yield takeEvery("UPDATE_EVENT_BY_ID", updateEventById);
 }
 function* getEvents(action) {
   try {
@@ -29,9 +30,17 @@ function* deleteEventById(action) {
     const id = action.payload;
     yield axios.delete(`/events/${id}`);
     yield put({ type: "DELETE_EVENT_BY_ID_SUCCESSFUL", payload: id });
-
   } catch (error) {
     yield put({ type: "DELETE_EVENT_BY_ID_FAILED", payload: error });
+  }
+}
+function* updateEventById(action) {
+  try {
+    const { event_id, game_id, date_time } = action.payload;
+    yield axios.put(`/events/${event_id}`, { game_id, date_time });
+    yield put({type:'UPDATE_EVENT_BY_ID_SUCCESSFUL'}) // do I need a payload?
+  } catch (error) {
+    yield put({ type: "UPDATE_EVENT_BY_ID_FAILED", payload: error });
   }
 }
 export default eventsSaga;
