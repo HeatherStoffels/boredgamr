@@ -20,4 +20,13 @@ router.get("/", (req, res) => {
     });
 });
 
+router.delete("/:id", (req, res)=>{
+    const sqlText = `delete from events where id = $1;`;
+    pool.query(sqlText,[req.params.id]).then(()=>{
+        res.sendStatus(200);
+    }).catch((error)=>{
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;
