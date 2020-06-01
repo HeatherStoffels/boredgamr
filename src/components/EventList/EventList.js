@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class EventList extends Component {
+  componentDidMount() {
+    this.props.dispatch({ type: "GET_ALL_GAMES" });
+  }
   handleClick = (e) => {
-    
     this.props.dispatch({ type: "GET_EVENT_BY_ID", payload: e.target.value });
   };
 
@@ -12,12 +14,17 @@ class EventList extends Component {
     return (
       <div>
         <h2>Event List</h2>
+
         <ul>
           {this.props.events.map((event) => (
             <li key={event.events_id}>
               {event.username} - {event.name} - {event.date_time} -
+           
               <Link to="/details">
-                <button value={parseInt(event.events_id)} onClick={this.handleClick}>
+                <button
+                  value={parseInt(event.events_id)}
+                  onClick={this.handleClick}
+                >
                   More Info
                 </button>
               </Link>
@@ -31,6 +38,7 @@ class EventList extends Component {
 
 const mapStateToProps = (state) => ({
   events: state.events,
+  allBoardgames: state.allBoardgames,
 });
 
 export default connect(mapStateToProps)(EventList);

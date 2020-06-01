@@ -5,7 +5,7 @@ class EventDetails extends Component {
   render() {
     return (
       <div>
-        <h1>Details Page</h1>
+        <h1>Gamenight Details</h1>
         <p>{this.props.eventDetails.event_id}</p>
         <p>{this.props.eventDetails.game_name}</p>
         <p>{this.props.eventDetails.date_time}</p>

@@ -37,6 +37,7 @@ class EditEvent extends Component {
     return (
       <div>
         <h1>Change Event</h1>
+        <h3>Choose a game</h3>
 
         <select
           id="game_name"
@@ -51,7 +52,7 @@ class EditEvent extends Component {
           })}
         </select>
         <br />
-        <h1>Pick a date and time!</h1>
+        <h3>Choose a date and time</h3>
         <DatePicker
           selected={this.state.date_time}
           onChange={(event) => this.handleChange(event, "date_time")}

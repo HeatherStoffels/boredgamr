@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class UserEventsList extends Component {
-    
+
   render() {
     return (
       <div>
         <h2>My Event List</h2>
         <ul>
-          {this.props.events.map((event) => (
+          {/* {this.props.events.map((event) => (
             <li key={event.events_id}></li>
-          ))}
+          ))} */}
         </ul>
       </div>
     );
