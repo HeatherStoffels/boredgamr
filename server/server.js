@@ -13,7 +13,7 @@ const userRouter = require('./routes/user.router');
 const eventsRouter = require('./routes/events.router');
 const newEventRouter = require('./routes/newEvent.router');
 const gameRouter = require('./routes/game.router');
-const allgamesRouter = require('./routes/allgames.router');
+const allGamesRouter = require('./routes/allGames.router');
 const myEventsRouter = require('./routes/myEvents.router');
 const detailsRouter = require('./routes/details.router');
 const hostedEventsRouter = require('./routes/hostedEvents.router');
@@ -33,10 +33,11 @@ app.use('/api/user', userRouter);
 app.use('/events', eventsRouter);
 app.use('/create', newEventRouter);
 app.use('/game', gameRouter);
-app.use('/allgames', allgamesRouter);
-app.use('/myEvents', myEventsRouter);
+app.use('/allgames', allGamesRouter);
+app.use('/myevents', myEventsRouter);
 app.use('/details', detailsRouter);
 app.use('/host', hostedEventsRouter);
+
 
 // Serve static files
 app.use(express.static('build'));

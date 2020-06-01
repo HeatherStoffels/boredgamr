@@ -9,7 +9,8 @@ const AboutPage = () => (
   <div>
     <div>
       <p>
-        This about page is for anyone to read!
+        Boredgamr is a social platform for folks to find boardgame's to play with others. Users are able to create 
+        a free account and join future events and/or post event's they would like to host. Nerds of the world unite! 
       </p>
     </div>
   </div>

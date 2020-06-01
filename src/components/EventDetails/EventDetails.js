@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class EventDetails extends Component {
+  handleClick = () => {
+    console.log(this.props.eventDetails.event_id);
+
+    this.props.dispatch({
+      type: "JOIN_EVENT_WITH_ID",
+      payload: {
+        user: this.props.user.id,
+        event: parseInt(this.props.eventDetails.event_id),
+      },
+    });
+  };
   render() {
     return (
       <div>
@@ -22,7 +34,9 @@ class EventDetails extends Component {
           width="100px"
         />
         <p>{this.props.eventDetails.number_of_players}</p>
-        <button>Join Gamenight!</button>
+        <Link to="/home">
+          <button onClick={this.handleClick}>Join Gamenight!</button>
+        </Link>
       </div>
     );
   }
