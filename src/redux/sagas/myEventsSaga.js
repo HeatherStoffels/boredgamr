@@ -20,6 +20,7 @@ function* joinEventWithId(action) {
       event: action.payload.event,
     });
     yield put({ type: "JOIN_EVENT_WITH_ID_SUCCESSFUL", payload: response.data });
+    yield put({ type: "GET_MY_EVENTS_SUCCESSFUL", payload: response.data });
   } catch (error) {
     yield put({ type: "JOIN_EVENT_WITH_ID_FAILED", payload: error });
   }

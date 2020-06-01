@@ -11,7 +11,7 @@ class EditEvent extends Component {
 
   state = {
     event_id: 1,
-    game_id: "",
+    game_id: '',
     date_time: new Date(),
   };
   handleChange = (event, property) => {

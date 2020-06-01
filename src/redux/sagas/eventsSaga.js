@@ -30,6 +30,7 @@ function* deleteEventById(action) {
     const id = action.payload;
     yield axios.delete(`/events/${id}`);
     yield put({ type: "DELETE_EVENT_BY_ID_SUCCESSFUL", payload: id });
+    // yield put({ type: 'GET_ALL_HOSTED_EVENTS', payload: id });
   } catch (error) {
     yield put({ type: "DELETE_EVENT_BY_ID_FAILED", payload: error });
   }

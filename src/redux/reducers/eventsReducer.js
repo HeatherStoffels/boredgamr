@@ -8,6 +8,8 @@ const eventsReducer = (state = [], action) => {
           return event.events_id !== action.payload;
         }),
       ];
+      case"UPDATE_EVENT_BY_ID_SUCCESSFUL":
+      return action.payload;
     case "GET_EVENTS_FAILED":
     case "DELETE_EVENT_BY_ID_FAILED":
       return { ...state, errors: action.payload };
