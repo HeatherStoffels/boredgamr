@@ -5,12 +5,21 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
 
 class EditEvent extends Component {
-  componentDidMount() {
+  componentDidMount() {  
+      console.log('component mounted');
     this.props.dispatch({ type: "GET_ALL_GAMES" });
+    // send dispatch to reducer that has one event info
+  }
+  componentDidUpdate (prevProps){
+    if(this.props.eventDetails.event_id !== prevProps.eventDetails.event_id){
+        this.setState({
+          event_id: this.props.eventDetails.event_id  
+        });
+    }
   }
 
   state = {
-    event_id: 1,
+    event_id: '',
     game_id: '',
     date_time: new Date(),
   };
@@ -29,11 +38,14 @@ class EditEvent extends Component {
     }
   };
   handleClick = () => {
+      console.log(this.state)
     this.props.dispatch({ type: "UPDATE_EVENT_BY_ID", payload: this.state });
+    this.props.history.push('/host');
     
   };
 
   render() {
+    console.log("current state for editing", this.props.eventDetails.event_id)
     return (
       <div>
         <h1>Change Event</h1>
@@ -63,9 +75,9 @@ class EditEvent extends Component {
           dateFormat="MMMM d, yyyy h:mm aa"
           placeholderText="Click to select a date"
         />
-        <Link to="/host">
+     
           <button onClick={this.handleClick}>Change Event</button>
-        </Link>
+       
       </div>
     );
   }
@@ -75,6 +87,7 @@ const mapStateToProps = (state) => ({
   events: state.events,
   user: state.user,
   allBoardgames: state.allBoardgames,
+  eventDetails: state.eventDetails,
 });
 
 export default connect(mapStateToProps)(EditEvent);

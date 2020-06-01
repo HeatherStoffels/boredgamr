@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-class UserEventsList extends Component {
+class MyEventsList extends Component {
+
+    componentDidMount(){
+        this.props.dispatch({type: "GET_MY_EVENTS"});
+    }
 
   render() {
     return (
       <div>
         <h2>My Event List</h2>
         <ul>
-          {/* {this.props.events.map((event) => (
-            <li key={event.events_id}></li>
-          ))} */}
+      
         </ul>
       </div>
     );
@@ -22,4 +24,4 @@ const mapStateToProps = (state) => ({
   events: state.events,
 });
 
-export default connect(mapStateToProps)(UserEventsList);
+export default connect(mapStateToProps)(MyEventsList);

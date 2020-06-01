@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import EventList from "../EventList/EventList";
-import UserEventsList from "../UserEventsList/UserEventsList";
+import MyEventsList from "../MyEventsList/MyEventsList";
 
 
 
@@ -13,7 +13,7 @@ const UserPage = (props) => (
   <div>
     <h1 id="welcome">Welcome, {props.user.username}!</h1>
 
-    <UserEventsList />
+    <MyEventsList />
     <EventList />
   </div>
 );

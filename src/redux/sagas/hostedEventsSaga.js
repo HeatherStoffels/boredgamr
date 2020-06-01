@@ -7,8 +7,7 @@ function* hostedEventsSaga() {
 }
 function* getAllHostedEvents(action) {
   try {
-    const id = action.payload;
-    const response = yield axios.get(`/host/${id}`);
+    const response = yield axios.get(`/host`);
     yield put({ type: "GET_ALL_HOSTED_EVENTS_SUCCESSFUL", payload: response.data });
   } catch (error) {
     yield put({ type: "GET_ALL_HOSTED_EVENTS_FAILED", payload: error });

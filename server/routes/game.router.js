@@ -2,7 +2,9 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
-router.get('/:id', (req, res) => {
+// GET /game/id
+// Returns game details by id
+router.get("/:id", (req, res) => {
   const sqlText = `SELECT * FROM "boardgame" WHERE id = $1 `;
   pool
     .query(sqlText, [req.params.id])

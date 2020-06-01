@@ -1,8 +1,11 @@
 const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-router.get("/:id", (req, res) => {
+// GET /host/id
+// Returns events hosted by id
+router.get("/", rejectUnauthenticated, (req, res) => {
   const sqlText = `
     select date_time, events.id as event_id, "name" as boardgame_name
     from events 
@@ -11,10 +14,8 @@ router.get("/:id", (req, res) => {
     where "user".id = $1;
         `;
   pool
-    .query(sqlText, [req.params.id])
+    .query(sqlText, [req.user.id])
     .then((response) => {
-      console.log(response);
-
       res.send(response.rows);
     })
     .catch((error) => {

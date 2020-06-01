@@ -2,12 +2,20 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
+// GET /myevents
+// Returns all events for user id
 router.get("/", (req, res) => {
-  const sqlText = `SELECT event_id FROM user_events WHERE user_id = 1 `;
+  const sqlText = `select events.id, boardgame.name as game_name, date_time, "user".username as host_name
+  from events
+  join "user" on events.host_id = "user".id
+  join boardgame on events.game_id = boardgame.id
+  join user_events on events.id = user_events.event_id
+  where "user_events".user_id = 1;`;
+  const body = [req.body.user_id];
   pool
-    .query(sqlText)
-    .then((response) => {
-      res.status(200).send(response.rows);
+    .query(sqlText, body)
+    .then(({ rows }) => {
+      res.status(200).send(rows);
     })
     .catch((error) => {
       console.log(`Error making database query ${sqlText}`, error);
@@ -15,13 +23,15 @@ router.get("/", (req, res) => {
     });
 });
 
+// POST /myevents
+// Body: {user: [user id], event: [event id]}
 router.post("/", (req, res) => {
-  let query = `INSERT INTO user_events ("user_id", "event_id") VALUES ($1, $2) returning *`;
-  let values = [req.body.user, req.body.event];
+  const query = `INSERT INTO user_events ("user_id", "event_id") VALUES ($1, $2)`;
+  const body = [req.body.user, req.body.event];
   pool
-    .query(query, values)
-    .then(({rows}) => {
-      res.status(200).send(rows[0]);
+    .query(query, body)
+    .then(() => {
+      res.sendStatus(200);
     })
     .catch((error) => {
       console.log(error);

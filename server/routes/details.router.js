@@ -2,6 +2,8 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
+// GET /details/id
+// Returns details for event with id
 router.get("/:id", (req, res) => {
   const sqlText = `
     select events.id as event_id, name as game_name, link, picture, player as number_of_players, events.date_time 
