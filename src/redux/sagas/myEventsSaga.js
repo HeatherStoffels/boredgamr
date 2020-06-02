@@ -7,8 +7,8 @@ function* myEventSaga() {
 }
 function* getMyEvents(action) {
   try {
-      const id = action.payload
-    const response = yield axios.get(`/myevents/${id}`);
+     
+    const response = yield axios.get(`/myevents`);
     yield put({ type: "GET_MY_EVENTS_SUCCESSFUL", payload: response.data });
   } catch (error) {
     yield put({ type: "GET_MY_EVENTS_FAILED", payload: error });
@@ -21,7 +21,7 @@ function* joinEventWithId(action) {
       event: action.payload.event,
     });
     yield put({ type: "JOIN_EVENT_WITH_ID_SUCCESSFUL", payload: response.data });
-    yield put({ type: "GET_MY_EVENTS_SUCCESSFUL", payload: response.data });
+    yield put({ type: "GET_MY_EVENTS", payload: response.data });
   } catch (error) {
     yield put({ type: "JOIN_EVENT_WITH_ID_FAILED", payload: error });
   }

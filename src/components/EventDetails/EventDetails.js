@@ -11,13 +11,13 @@ class EventDetails extends Component {
         event: parseInt(this.props.eventDetails.event_id),
       },
     });
+    // this.props.dispatch({type: "GET_MY_EVENTS"});
   };
  
   render() {
     return (
       <div>
         <h1>Gamenight Details</h1>
-        <p>{this.props.eventDetails.event_id}</p>
         <p>{this.props.eventDetails.game_name}</p>
         <p>{this.props.eventDetails.date_time}</p>
         <a
