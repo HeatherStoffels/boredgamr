@@ -10,13 +10,26 @@ class MyEventsList extends Component {
     return (
       <div>
         <h2>My Event List</h2>
-        <ul>
-          {this.props.myEvents.map((event) => (
-            <li key={event.events_id}>
-              {event.host_name} - {event.game_name} - {event.date_time}
-            </li>
-          ))}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Host Name</th>
+              <th>Game Name</th>
+              <th>Date/Time</th>
+            </tr>
+          </thead>
+
+          <tbody>
+              {this.props.myEvents.map((event) => (
+                <tr key={event.id}>
+                  <td>{event.host_name}</td>
+                  <td>{event.game_name}</td>
+                  <td>{event.date_time}</td>
+                </tr>
+              ))}
+          </tbody>
+
+        </table>
       </div>
     );
   }

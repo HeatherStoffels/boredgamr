@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 class EventDetails extends Component {
   handleClick = () => {
-    console.log(this.props.eventDetails.event_id);
-
     this.props.dispatch({
       type: "JOIN_EVENT_WITH_ID",
       payload: {
