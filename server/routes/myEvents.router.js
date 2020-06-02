@@ -4,14 +4,14 @@ const router = express.Router();
 
 // GET /myevents
 // Returns all events for user id
-router.get("/", (req, res) => {
+router.get("/:id", (req, res) => {
   const sqlText = `select events.id, boardgame.name as game_name, date_time, "user".username as host_name
   from events
   join "user" on events.host_id = "user".id
   join boardgame on events.game_id = boardgame.id
   join user_events on events.id = user_events.event_id
-  where "user_events".user_id = 1;`;
-  const body = [req.body.user_id];
+  where user_events.user_id = $1;`;
+  const body = [req.params.id];
   pool
     .query(sqlText, body)
     .then(({ rows }) => {

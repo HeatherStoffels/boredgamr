@@ -13,7 +13,7 @@ const UserPage = (props) => (
   <div>
     <h1 id="welcome">Welcome, {props.user.username}!</h1>
 
-    <MyEventsList />
+    <MyEventsList user={props.user}/>
     <EventList />
   </div>
 );

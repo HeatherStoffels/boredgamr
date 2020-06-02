@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class MyEventsList extends Component {
 
     componentDidMount(){
-        this.props.dispatch({type: "GET_MY_EVENTS"});
+        this.props.dispatch({type: "GET_MY_EVENTS", payload: this.props.user.id});
     }
 
   render() {
@@ -22,6 +22,7 @@ class MyEventsList extends Component {
 const mapStateToProps = (state) => ({
   errors: state.errors,
   events: state.events,
+  myEvents: state.myEvents,
 });
 
 export default connect(mapStateToProps)(MyEventsList);

@@ -5,9 +5,10 @@ function* myEventSaga() {
   yield takeEvery("GET_MY_EVENTS", getMyEvents);
   yield takeEvery("JOIN_EVENT_WITH_ID", joinEventWithId);
 }
-function* getMyEvents() {
+function* getMyEvents(action) {
   try {
-    const response = yield axios.get("/myevents");
+      const id = action.payload
+    const response = yield axios.get(`/myevents/${id}`);
     yield put({ type: "GET_MY_EVENTS_SUCCESSFUL", payload: response.data });
   } catch (error) {
     yield put({ type: "GET_MY_EVENTS_FAILED", payload: error });

@@ -1,6 +1,6 @@
 const myEventsReducer = (state = [], action) => {
   switch (action.type) {
-    case "FETCH_MY_EVENTS":
+    case "GET_MY_EVENTS_SUCCESSFUL":
       console.log("the action is", action);
       return action.payload;
     case "JOIN_EVENT_WITH_ID_SUCCESSFUL":
