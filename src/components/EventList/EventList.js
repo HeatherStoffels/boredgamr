@@ -18,7 +18,7 @@ class EventList extends Component {
         <ul>
           {this.props.events.map((event) => (
             <li key={event.events_id}>
-              {event.username} - {event.name} - {event.date_time} -
+              {event.username} - {event.name} - {event.date_time} <img src={event.picture} width="100px" alt={event.game_name}/>
            
               <Link to="/details">
                 <button

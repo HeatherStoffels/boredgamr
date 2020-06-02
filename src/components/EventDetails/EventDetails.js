@@ -12,6 +12,7 @@ class EventDetails extends Component {
       },
     });
   };
+ 
   render() {
     return (
       <div>
@@ -35,6 +36,7 @@ class EventDetails extends Component {
         <Link to="/home">
           <button onClick={this.handleClick}>Join Gamenight!</button>
         </Link>
+        <Link to="/home"><button>Back</button></Link>
       </div>
     );
   }

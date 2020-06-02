@@ -6,7 +6,7 @@ const router = express.Router();
 // Returns all events
 router.get("/", (req, res) => {
   const sqlText = `
-            SELECT "user"."id" as user_id, username, events.id as events_id, date_time, boardgame.id as game_id, name, player
+            SELECT "user"."id" as user_id, username, events.id as events_id, date_time, picture, boardgame.id as game_id, name, player
             FROM "user"
             JOIN events on events.host_id = "user"."id"
             JOIN boardgame on boardgame.id = events.game_id;
