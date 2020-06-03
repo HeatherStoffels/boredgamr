@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import moment from 'moment';
 
 class HostedEvents extends Component {
   componentDidMount() {
@@ -40,7 +41,7 @@ class HostedEvents extends Component {
             {this.props.hostedEvents.map((event) => (
               <tr key={event.event_id}>
                 <td>{event.boardgame_name}</td>
-                <td>{event.date_time}</td>
+                <td>{moment(event.date_time).format('MMMM Do YYYY, h:mm:ss a')}</td>
                 <td>
                   {" "}
                   <button

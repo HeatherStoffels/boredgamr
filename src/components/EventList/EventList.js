@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 class EventList extends Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class EventList extends Component {
         <ul>
           {this.props.events.map((event) => (
             <li key={event.events_id}>
-              {event.username} - {event.name} - {event.date_time} <img src={event.picture} width="100px" alt={event.game_name}/>
+              {event.username} - {event.name} - {moment(event.date_time).format('MMMM Do YYYY, h:mm:ss a')} <img src={event.picture} width="100px" alt={event.game_name}/>
            
               <Link to="/details">
                 <button

@@ -14,7 +14,7 @@ import UserPage from "../UserPage/UserPage";
 import CreateEvent from "../CreateEvent/CreateEvent";
 import EventDetails from "../EventDetails/EventDetails";
 import HostedEvents from "../HostedEvents/HostedEvents";
-import EditEvent from "../EditEvent/EditEvent"
+import EditEvent from "../EditEvent/EditEvent";
 import "./App.css";
 
 class App extends Component {
@@ -25,8 +25,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-          
-        <div >
+        <div>
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}

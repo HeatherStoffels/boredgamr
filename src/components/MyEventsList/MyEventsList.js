@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import moment from "moment";
 class MyEventsList extends Component {
   componentDidMount() {
     this.props.dispatch({ type: "GET_MY_EVENTS", payload: this.props.user.id });
@@ -8,6 +8,8 @@ class MyEventsList extends Component {
 handleClick = () =>{
     console.log("in handleclick,", this.props.events.user_id, this.props.myEvents.event_id);
 }
+
+
   render() {
     return (
       <div>
@@ -26,7 +28,7 @@ handleClick = () =>{
                 <tr key={event.id}>
                   <td>{event.host_name}</td>
                   <td>{event.game_name}</td>
-                  <td>{event.date_time}</td>
+                  <td>{moment(event.date_time).format('MMMM Do YYYY, h:mm:ss a')}</td>
                   {/* <td><button onClick={this.handleClick}>Cancel reservation</button></td> */}
                 </tr>
               ))}
