@@ -28,7 +28,7 @@ handleClick = () =>{
                 <tr key={event.id}>
                   <td>{event.host_name}</td>
                   <td>{event.game_name}</td>
-                  <td>{moment(event.date_time).format('MMMM Do YYYY, h:mm:ss a')}</td>
+                  <td>{moment(event.date_time).format('MMMM Do YYYY, h:mm a')}</td>
                   {/* <td><button onClick={this.handleClick}>Cancel reservation</button></td> */}
                 </tr>
               ))}

@@ -42,8 +42,8 @@ class CreateEvent extends Component {
   render() {
     return (
       <div>
-        <header>Create new events page</header>
-        <h1>Pick a game</h1>
+       
+        <h3>Pick a game</h3>
       
                   
     
@@ -57,7 +57,7 @@ class CreateEvent extends Component {
          
         </select>
         <br />
-        <h1>Pick a date and time!</h1>
+        <h3>Pick a date and time!</h3>
         <DatePicker
           selected={this.state.date_time}
           onChange={(event) => this.handleChange(event, "date_time")}

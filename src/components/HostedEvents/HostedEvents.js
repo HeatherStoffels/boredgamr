@@ -41,7 +41,7 @@ class HostedEvents extends Component {
             {this.props.hostedEvents.map((event) => (
               <tr key={event.event_id}>
                 <td>{event.boardgame_name}</td>
-                <td>{moment(event.date_time).format('MMMM Do YYYY, h:mm:ss a')}</td>
+                <td>{moment(event.date_time).format('MMMM Do YYYY, h:mm a')}</td>
                 <td>
                   {" "}
                   <button
