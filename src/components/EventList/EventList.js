@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { Button, Container } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -11,6 +10,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
 
 import "./EventList.css";
 
@@ -34,31 +34,38 @@ class EventList extends Component {
           {this.props.events.map((event) => {
             return (
               <Grid item xs={3}>
+                <Box m={2}>
                   <Card>
-                <CardActionArea>
-                  <CardMedia image={event.picture} title={event.name} component="img"/>
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {event.name}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <CardActions>
-                  <Link to="/details" underline="none">
-                    <Button
-                      size="small"
-                      variant="contained"
-                      value={parseInt(event.events_id)}
-                      onClick={this.handleClick}
-                    >
-                      More Info
-                    </Button>
-                  </Link>
-                  <Button size="small" color="primary">
-                    Learn More
-                  </Button>
-                </CardActions>
-              </Card></Grid>
+                    <CardActionArea>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {event.name}
+                        <br />
+                        Hosted By: {event.username}
+                      </Typography>
+                      <CardMedia
+                        image={event.picture}
+                        title={event.name}
+                        component="img"
+                      />
+                      <CardContent>
+                        {moment(event.date_time).format("MMMM Do YYYY, h:mm a")}{" "}
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                      <Link to="/details" underline="none">
+                        <Button
+                          size="small"
+                          variant="contained"
+                          value={parseInt(event.events_id)}
+                          onClick={this.handleClick}
+                        >
+                          More Info
+                        </Button>
+                      </Link>
+                    </CardActions>
+                  </Card>
+                </Box>
+              </Grid>
               //   <li>
               //     {event.name}
               //     <br />
