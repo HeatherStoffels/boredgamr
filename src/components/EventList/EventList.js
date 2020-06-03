@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import Button from "@material-ui/core/Button";
-import { Card, CardImg, CardBody, CardTitle, CardDeck, Row, Col } from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle, CardDeck, } from "reactstrap";
 import "./EventList.css"
 
 class EventList extends Component {
@@ -29,7 +29,7 @@ class EventList extends Component {
           <CardDeck>
               <Card className="card" body outline color="primary">
                 <CardBody>
-                <CardTitle>{event.name}</CardTitle> 
+                <CardTitle>{event.name}</CardTitle> <br/>
                   Host: {event.username} <br/>
                   {moment(event.date_time).format("MMMM Do YYYY, h:mm a")}{" "}
                 </CardBody>
