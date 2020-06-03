@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import moment from 'moment';
+import moment from "moment";
+import Button from "@material-ui/core/Button";
 
 class HostedEvents extends Component {
   componentDidMount() {
@@ -13,14 +14,14 @@ class HostedEvents extends Component {
   handleClickDelete = (e) => {
     this.props.dispatch({
       type: "DELETE_EVENT_BY_ID",
-      payload: parseInt(e.target.value),
+      payload: parseInt(e.currentTarget.value),
     });
   };
   handleClickEdit = (e) => {
     console.log(e.target.value);
     this.props.dispatch({
       type: "GET_EVENT_BY_ID",
-      payload: parseInt(e.target.value),
+      payload: parseInt(e.currentTarget.value),
     });
   };
 
@@ -41,25 +42,30 @@ class HostedEvents extends Component {
             {this.props.hostedEvents.map((event) => (
               <tr key={event.event_id}>
                 <td>{event.boardgame_name}</td>
-                <td>{moment(event.date_time).format('MMMM Do YYYY, h:mm a')}</td>
+                <td>
+                  {moment(event.date_time).format("MMMM Do YYYY, h:mm a")}
+                </td>
                 <td>
                   {" "}
-                  <button
+                  <Button
+                   size="small"
+                   variant="contained"
                     value={event.event_id}
                     onClick={this.handleClickDelete}
                   >
                     Delete Event
-                  </button>
+                  </Button>
                 </td>
                 <td>
                   {" "}
                   <Link to="/edit">
-                    <button
+                    <Button size="small"
+                  variant="contained"
                       value={event.event_id}
                       onClick={this.handleClickEdit}
                     >
                       Change Event
-                    </button>
+                    </Button>
                   </Link>
                 </td>
               </tr>
