@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import "./EventDetails.css"
 
 class EventDetails extends Component {
   handleClick = () => {
@@ -17,10 +18,17 @@ class EventDetails extends Component {
  
   render() {
     return (
-      <div>
+      <div className='details'>
         <h1>Gamenight Details</h1>
-        <p>{this.props.eventDetails.game_name}</p>
-        {moment(this.props.eventDetails.date_time).format("MMMM Do YYYY, h:mm a")}
+        <h2>{this.props.eventDetails.game_name}</h2>
+        <h3>{moment(this.props.eventDetails.date_time).format("MMMM Do YYYY, h:mm a")}</h3>
+        
+        <img
+          src={this.props.eventDetails.picture}
+          alt={this.props.eventDetails.game_name}
+          width="100px"
+        />
+        <h3>Number of Players: {this.props.eventDetails.number_of_players}</h3>
         <a
           href={this.props.eventDetails.link}
           target="_blank"
@@ -28,15 +36,9 @@ class EventDetails extends Component {
         >
           <p>Game Info</p>
         </a>
-        <img
-          src={this.props.eventDetails.picture}
-          alt={this.props.eventDetails.game_name}
-          width="100px"
-        />
-        <p>Number of Players: {this.props.eventDetails.number_of_players}</p>
         <Link to="/home">
           <button onClick={this.handleClick}>Join Gamenight!</button>
-        </Link>
+        </Link><br/>
         <Link to="/home"><button>Back</button></Link>
       </div>
     );
