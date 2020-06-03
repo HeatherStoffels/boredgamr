@@ -2,9 +2,17 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import Button from "@material-ui/core/Button";
-import { Card, CardImg, CardBody, CardTitle, CardDeck, } from "reactstrap";
-import "./EventList.css"
+import { Button, Container } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+
+import "./EventList.css";
 
 class EventList extends Component {
   componentDidMount() {
@@ -19,45 +27,65 @@ class EventList extends Component {
 
   render() {
     return (
-      <div className="eventList">
+      <Container maxWidth={false}>
         <h2>Event List</h2>
 
-        <ul>
+        <Grid container>
           {this.props.events.map((event) => {
             return (
-     
-          <CardDeck>
-              <Card className="card" body outline color="primary">
-                <CardBody>
-                <CardTitle>{event.name}</CardTitle> <br/>
-                  Host: {event.username} <br/>
-                  {moment(event.date_time).format("MMMM Do YYYY, h:mm a")}{" "}
-                </CardBody>
-                <CardImg
-                  src={event.picture}
-                  top
-                  width="100px"
-                  style={{ width: "50%", height: "40%" }}
-                  alt={event.game_name}
-                />
-                <br/>
-                <Link to="/details">
-                  <Button
-                    size="small"
-                    variant="contained"
-                    value={parseInt(event.events_id)}
-                    onClick={this.handleClick}
-                  >
-                    More Info
+              <Grid item xs={3}>
+                  <Card>
+                <CardActionArea>
+                  <CardMedia image={event.picture} title={event.name} component="img"/>
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {event.name}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Link to="/details" underline="none">
+                    <Button
+                      size="small"
+                      variant="contained"
+                      value={parseInt(event.events_id)}
+                      onClick={this.handleClick}
+                    >
+                      More Info
+                    </Button>
+                  </Link>
+                  <Button size="small" color="primary">
+                    Learn More
                   </Button>
-                </Link>
-              </Card>
-              </CardDeck>
-           
+                </CardActions>
+              </Card></Grid>
+              //   <li>
+              //     {event.name}
+              //     <br />
+              //     Host: {event.username} <br />
+              //     {moment(event.date_time).format("MMMM Do YYYY, h:mm a")}{" "}
+              //     <img
+              //       src={event.picture}
+              //       top
+              //       width="100px"
+              //       alt={event.game_name}
+              //     />
+              //     <br />
+              //     <Link to="/details" underline="none">
+              //       <Button
+              //         size="small"
+              //         variant="contained"
+              //         value={parseInt(event.events_id)}
+              //         onClick={this.handleClick}
+              //       >
+              //         More Info
+              //       </Button>
+              //     </Link>
+              //   </li>
             );
           })}
-        </ul>
-      </div>
+        </Grid>
+      </Container>
     );
   }
 }

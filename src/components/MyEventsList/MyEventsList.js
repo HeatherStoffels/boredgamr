@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
+import {Container} from "@material-ui/core";
 class MyEventsList extends Component {
   componentDidMount() {
     this.props.dispatch({ type: "GET_MY_EVENTS", payload: this.props.user.id });
@@ -12,7 +13,7 @@ handleClick = () =>{
 
   render() {
     return (
-      <div>
+      <Container>
         <h2>My Event List</h2>
         <table>
           <thead>
@@ -35,7 +36,7 @@ handleClick = () =>{
           </tbody>
 
         </table>
-      </div>
+      </Container>
     );
   }
 }

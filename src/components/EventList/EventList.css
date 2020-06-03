@@ -1,4 +1,4 @@
-.card {
+/* .card {
   width: 600px;
   padding: 30px;
   display: flex;
@@ -10,5 +10,7 @@
   flex-wrap: wrap;
   justify-content: left;
   margin: 0 auto;
+} */
+.MuiCardMedia-media{
+    height: 300px;
 }
-
