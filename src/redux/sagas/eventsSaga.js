@@ -18,7 +18,6 @@ function* getEvents(action) {
 function* getEventById(action) {
   try {
     const id = action.payload;
-
     const response = yield axios.get(`/details/${id}`);
     yield put({ type: "GET_EVENT_BY_ID_SUCCESSFUL", payload: response.data });
   } catch (error) {
@@ -28,7 +27,6 @@ function* getEventById(action) {
 function* deleteEventById(action) {
   try {
     const id = action.payload;
-    console.log(id);
     yield axios.delete(`/events/${id}`);
     yield put({ type: "DELETE_EVENT_BY_ID_SUCCESSFUL", payload: id });
     yield put({ type: "GET_ALL_HOSTED_EVENTS" });
@@ -42,7 +40,7 @@ function* updateEventById(action) {
     yield axios.put(`/events/${event_id}`, { game_id, date_time });
     yield put({ type: "UPDATE_EVENT_BY_ID_SUCCESSFUL" });
     yield put({ type: "GET_ALL_HOSTED_EVENTS" });
-    yield put({ type: "GET_EVENTS" }); 
+    yield put({ type: "GET_EVENTS" });
   } catch (error) {
     yield put({ type: "UPDATE_EVENT_BY_ID_FAILED", payload: error });
   }

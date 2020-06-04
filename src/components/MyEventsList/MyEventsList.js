@@ -22,27 +22,29 @@ handleClick = () =>{
     return (
       <Container>
         <h2>My Event List</h2>
+        <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
-              <th>Host Name</th>
-              <th>Game Name</th>
-              <th>Date/Time</th>
+              <TableCell>Host Name</TableCell>
+              <TableCell>Game Name</TableCell>
+              <TableCell>Date/Time</TableCell>
             </TableRow>
           </TableHead>
 
           <TableBody>
               {this.props.myEvents.map((event) => (
-                <tr key={event.id}>
-                  <td>{event.host_name}</td>
-                  <td>{event.game_name}</td>
-                  <td>{moment(event.date_time).format('MMMM Do YYYY, h:mm a')}</td>
+                <TableRow key={event.id}>
+                  <TableCell>{event.host_name}</TableCell>
+                  <TableCell>{event.game_name}</TableCell>
+                  <TableCell>{moment(event.date_time).format('MMMM Do YYYY, h:mm a')}</TableCell>
                   {/* <td><button onClick={this.handleClick}>Cancel reservation</button></td> */}
-                </tr>
+                </TableRow>
               ))}
           </TableBody>
 
         </Table>
+        </TableContainer>
       </Container>
     );
   }

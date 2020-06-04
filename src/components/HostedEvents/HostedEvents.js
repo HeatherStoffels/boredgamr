@@ -25,7 +25,7 @@ class HostedEvents extends Component {
     });
   };
   handleClickEdit = (e) => {
-    // console.log(e.target.value);
+  
     this.props.dispatch({
       type: "GET_EVENT_BY_ID",
       payload: parseInt(e.currentTarget.value),
