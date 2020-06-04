@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import {
     Link,
   } from 'react-router-dom';
-//   import Button from "@material-ui/core/Button";
+  import Button from "@material-ui/core/Button";
 
 class CreateEvent extends Component {
 
@@ -65,7 +65,8 @@ class CreateEvent extends Component {
           dateFormat="MMMM d, yyyy h:mm aa"
           placeholderText="Click to select a date"
         />
-        <Link to="/home"><button onClick={this.handleClick}> New Event</button></Link>
+        <br/>
+        <Link to="/home"><Button size="small" variant="contained" onClick={this.handleClick}> New Event</Button></Link>
       </div>
     );
   }

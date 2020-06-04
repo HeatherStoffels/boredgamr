@@ -37,10 +37,11 @@ handleDeleteEvent = (e) =>{
           <TableBody>
               {this.props.myEvents.map((event) => (
                 <TableRow key={event.id}>
-                  <TableCell>{event.host_name}</TableCell>
+                  <TableCell component="th" scope="row" >{event.host_name}</TableCell>
                   <TableCell>{event.game_name}</TableCell>
                   <TableCell>{moment(event.date_time).format('MMMM Do YYYY, h:mm a')}</TableCell>
-                  <TableCell><Button value={event.id} onClick={this.handleDeleteEvent}>Cancel reservation</Button></TableCell>
+                  <TableCell><Button  size="small"
+                      variant="contained" value={event.id} onClick={this.handleDeleteEvent}>Cancel reservation</Button></TableCell>
                 </TableRow>
               ))}
           </TableBody>
