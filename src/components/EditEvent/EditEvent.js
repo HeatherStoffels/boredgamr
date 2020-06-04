@@ -4,30 +4,35 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 class EditEvent extends Component {
-  componentDidMount() {  
-      console.log('component mounted');
-    this.props.dispatch({ type: "GET_ALL_GAMES" });
-    // send dispatch to reducer that has one event info
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        event_id: this.props.eventDetails.event_id,
+        game_id: this.props.eventDetails.game_id,
+      });
+    }, 1000);
   }
-  componentDidUpdate (prevProps){
-    if(this.props.eventDetails.event_id !== prevProps.eventDetails.event_id){
-        this.setState({
-          event_id: this.props.eventDetails.event_id  
-        });
-    }
-  }
+  // componentDidUpdate (prevProps){
+  //   if(this.props.eventDetails.event_id !== prevProps.eventDetails.event_id){
+  //       this.setState({
+  //         event_id: this.props.eventDetails.event_id
+  //       });
+  //   }
+  // }
 
   state = {
-    event_id: '',
-    game_id: '',
+    event_id: null,
+    game_id: null,
     date_time: new Date(),
   };
+
   handleChange = (event, property) => {
     switch (property) {
       case "game_id":
         return this.setState({
           [property]: event.target.value,
         });
+
       case "date_time":
         return this.setState({
           [property]: event,
@@ -37,14 +42,11 @@ class EditEvent extends Component {
     }
   };
   handleClick = () => {
-      console.log(this.state)
     this.props.dispatch({ type: "UPDATE_EVENT_BY_ID", payload: this.state });
-    this.props.history.push('/host');
-    
+    this.props.history.push("/host");
   };
 
   render() {
-    console.log("current state for editing", this.props.eventDetails.event_id)
     return (
       <div>
         <h1>Change Event</h1>
@@ -74,9 +76,8 @@ class EditEvent extends Component {
           dateFormat="MMMM d, yyyy h:mm aa"
           placeholderText="Click to select a date"
         />
-     
-          <button onClick={this.handleClick}>Change Event</button>
-       
+
+        <button onClick={this.handleClick}>Change Event</button>
       </div>
     );
   }

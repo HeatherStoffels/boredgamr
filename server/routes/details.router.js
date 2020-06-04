@@ -6,7 +6,7 @@ const router = express.Router();
 // Returns details for event with id
 router.get("/:id", (req, res) => {
   const sqlText = `
-    select events.id as event_id, name as game_name, link, picture, player as number_of_players, events.date_time 
+    select events.id as event_id, name as game_name, link, picture, boardgame.id as game_id, player as number_of_players, events.date_time 
     from boardgame 
     join events on events.game_id = boardgame.id
     where events.id = $1;

@@ -12,6 +12,7 @@
   margin: 0 auto;
 } */
 .MuiCardMedia-media{
-    height: 300px;
+    height: 200px;
+    width: 250px;
   
 }

@@ -34,15 +34,17 @@ class EventList extends Component {
           {this.props.events.map((event) => {
             return (
               <Grid item xs={3}>
-                <Box m={2}>
+                <Box m={1} p={1}>
                   <Card>
                     <CardActionArea>
                       <Typography gutterBottom variant="h5" component="h2">
                         {event.name}
-                        <br />
-                        Hosted By: {event.username}
                       </Typography>
+                      <br />
+                      <Typography variant="body2">Hosted By: {event.username}</Typography>
+
                       <CardMedia
+                        width={100}
                         image={event.picture}
                         title={event.name}
                         component="img"
