@@ -8,6 +8,7 @@ const sessionMiddleware = require('./modules/session-middleware');
 
 const passport = require('./strategies/user.strategy');
 
+
 // Route includes
 const userRouter = require('./routes/user.router');
 const eventsRouter = require('./routes/events.router');
@@ -49,3 +50,18 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
+// sendgrid
+// const sgMail = require('@sendgrid/mail');
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// const msg = {
+//   to: 'umdstarlet@gmail.com',
+//   from: 'dane@primeacademy.io',
+//   subject: 'Sending with Twilio SendGrid is Fun',
+//   text: 'and easy to do anywhere, even with Node.js',
+//   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+// };
+// sgMail.send(msg)
+// .then()
+// .catch((error) =>{
+//     console.log(error, "sendgrid key",process.env.SENDGRID_API_KEY )
+// });

@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import {
     Link,
   } from 'react-router-dom';
-  import Button from "@material-ui/core/Button";
+  import {Container, Button} from "@material-ui/core";
 
 class CreateEvent extends Component {
 
@@ -42,7 +42,7 @@ class CreateEvent extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
        
         <h3>Pick a game</h3>
         <select
@@ -67,7 +67,7 @@ class CreateEvent extends Component {
         />
         <br/>
         <Link to="/home"><Button size="small" variant="contained" onClick={this.handleClick}> New Event</Button></Link>
-      </div>
+      </Container>
     );
   }
 }

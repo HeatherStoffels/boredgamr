@@ -31,6 +31,7 @@ handleDeleteEvent = (e) =>{
               <TableCell>Host Name</TableCell>
               <TableCell>Game Name</TableCell>
               <TableCell>Date/Time</TableCell>
+              <TableCell>Changed My Mind</TableCell>
             </TableRow>
           </TableHead>
 
