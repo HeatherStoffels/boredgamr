@@ -33,7 +33,7 @@ class EventList extends Component {
         <Grid container>
           {this.props.events.map((event) => {
             return (
-              <Grid item xs={3}>
+              <Grid key={event.events_id} item xs={3}>
                 <Box m={1} p={1}>
                   <Card>
                     <CardActionArea>

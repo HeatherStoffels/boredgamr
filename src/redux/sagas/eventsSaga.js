@@ -28,6 +28,7 @@ function* getEventById(action) {
 function* deleteEventById(action) {
   try {
     const id = action.payload;
+    console.log(id);
     yield axios.delete(`/events/${id}`);
     yield put({ type: "DELETE_EVENT_BY_ID_SUCCESSFUL", payload: id });
     yield put({ type: "GET_ALL_HOSTED_EVENTS" });
@@ -40,7 +41,8 @@ function* updateEventById(action) {
     const { event_id, game_id, date_time } = action.payload;
     yield axios.put(`/events/${event_id}`, { game_id, date_time });
     yield put({ type: "UPDATE_EVENT_BY_ID_SUCCESSFUL" });
-    yield put({ type: "GET_ALL_HOSTED_EVENTS" }); // do I need a payload?
+    yield put({ type: "GET_ALL_HOSTED_EVENTS" });
+    yield put({ type: "GET_EVENTS" }); 
   } catch (error) {
     yield put({ type: "UPDATE_EVENT_BY_ID_FAILED", payload: error });
   }

@@ -3,6 +3,13 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import Button from "@material-ui/core/Button";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import TableContainer from "@material-ui/core/TableContainer";
 
 class HostedEvents extends Component {
   componentDidMount() {
@@ -29,49 +36,52 @@ class HostedEvents extends Component {
     return (
       <div>
         <h1>Hosted Events</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>Game Name</th>
-              <th>Date/Time</th>
-              <th>Delete Event</th>
-              <th>Change Event</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.hostedEvents.map((event) => (
-              <tr key={event.event_id}>
-                <td>{event.boardgame_name}</td>
-                <td>
-                  {moment(event.date_time).format("MMMM Do YYYY, h:mm a")}
-                </td>
-                <td>
-                  {" "}
-                  <button
-                   size="small"
-                   variant="contained"
-                    value={event.event_id}
-                    onClick={this.handleClickDelete}
-                  >
-                    Delete Event
-                  </button>
-                </td>
-                <td>
-                  {" "}
-                  <Link to="/edit">
-                    <Button size="small"
-                  variant="contained"
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Game Name</TableCell>
+                <TableCell>Date/Time</TableCell>
+                <TableCell>Delete Event</TableCell>
+                <TableCell>Change Event</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {this.props.hostedEvents.map((event) => (
+                <TableRow key={event.event_id}>
+                  <TableCell component="th" scope="row">
+                    {event.boardgame_name}
+                  </TableCell>
+                  <TableCell>
+                    {moment(event.date_time).format("MMMM Do YYYY, h:mm a")}
+                  </TableCell>
+                  <TableCell>
+                    <Button
+                      size="small"
+                      variant="contained"
                       value={event.event_id}
-                      onClick={this.handleClickEdit}
+                      onClick={this.handleClickDelete}
                     >
-                      Change Event
+                      Delete Event
                     </Button>
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  </TableCell>
+                  <TableCell>
+                    <Link to="/edit">
+                      <Button
+                        size="small"
+                        variant="contained"
+                        value={event.event_id}
+                        onClick={this.handleClickEdit}
+                      >
+                        Change Event
+                      </Button>
+                    </Link>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     );
   }

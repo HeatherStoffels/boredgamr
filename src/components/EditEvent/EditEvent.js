@@ -56,7 +56,7 @@ class EditEvent extends Component {
         <select
           id="game_name"
           onChange={(event) => this.handleChange(event, "game_id")}
-        ><option selected> Pick a game</option>
+        ><option defaultValue> Pick a game</option>
           {this.props.allBoardgames.map((game) => {
             return (
                
