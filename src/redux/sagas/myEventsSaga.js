@@ -4,7 +4,19 @@ import axios from "axios";
 function* myEventSaga() {
   yield takeEvery("GET_MY_EVENTS", getMyEvents);
   yield takeEvery("JOIN_EVENT_WITH_ID", joinEventWithId);
+  yield takeEvery("DELETE_EVENT_USER_ATTENDING", deleteEventUserAttending);
 }
+function* deleteEventUserAttending(action){
+    try{
+        const id = action.payload;
+        yield axios.delete(`/myevents/${id}`);
+        yield put({type: "DELETE_EVENT_USER_ATTENDING_SUCCESSFUL"});
+        yield put({type: "GET_MY_EVENTS"});
+    }catch(error){
+        yield put({type:"DELETE_EVENT_USER_ATTENDING_FAILED", payload: error});
+    }
+}
+
 function* getMyEvents(action) {
   try {
      

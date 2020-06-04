@@ -39,4 +39,17 @@ router.post("/", (req, res) => {
     });
 });
 
+router.delete("/:id", (req, res) =>{
+    const sqlText = `delete from user_events where user_id = $1 and event_id = $2;`;
+    pool
+      .query(sqlText, [req.user.id, req.params.id])
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch((error) => {
+        res.status(500).send(error);
+      });
+
+});
+
 module.exports = router;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
+import Button from "@material-ui/core/Button";
 import {Container} from "@material-ui/core";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -13,8 +14,9 @@ class MyEventsList extends Component {
   componentDidMount() {
     this.props.dispatch({ type: "GET_MY_EVENTS", payload: this.props.user.id });
   }
-handleClick = () =>{
-    console.log("in handleclick,", this.props.events.user_id, this.props.myEvents.event_id);
+handleDeleteEvent = (e) =>{
+    this.props.dispatch({type:"DELETE_EVENT_USER_ATTENDING", payload: parseInt(e.currentTarget.value) });
+    // console.log("in handleclick,", this.props.user.id, parseInt(e.currentTarget.value));
 }
 
 
@@ -38,7 +40,7 @@ handleClick = () =>{
                   <TableCell>{event.host_name}</TableCell>
                   <TableCell>{event.game_name}</TableCell>
                   <TableCell>{moment(event.date_time).format('MMMM Do YYYY, h:mm a')}</TableCell>
-                  {/* <td><button onClick={this.handleClick}>Cancel reservation</button></td> */}
+                  <TableCell><Button value={event.id} onClick={this.handleDeleteEvent}>Cancel reservation</Button></TableCell>
                 </TableRow>
               ))}
           </TableBody>
