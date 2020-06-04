@@ -9,6 +9,7 @@ class EditEvent extends Component {
       this.setState({
         event_id: this.props.eventDetails.event_id,
         game_id: this.props.eventDetails.game_id,
+        date_time: new Date(this.props.eventDetails.date_time),
       });
     }, 1000);
   }
@@ -23,7 +24,7 @@ class EditEvent extends Component {
   state = {
     event_id: null,
     game_id: null,
-    date_time: new Date(),
+    date_time: null,
   };
 
   handleChange = (event, property) => {
@@ -55,9 +56,10 @@ class EditEvent extends Component {
         <select
           id="game_name"
           onChange={(event) => this.handleChange(event, "game_id")}
-        >
+        ><option selected> Pick a game</option>
           {this.props.allBoardgames.map((game) => {
             return (
+               
               <option key={game.id} value={game.id}>
                 {game.name}
               </option>

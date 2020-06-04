@@ -45,17 +45,13 @@ class CreateEvent extends Component {
       <div>
        
         <h3>Pick a game</h3>
-      
-                  
-    
         <select
           id="game_name"
           onChange={(event) => this.handleChange(event, "game_id")}
-        >{this.props.allBoardgames.map((game)=>{
+        ><option selected>Pick a game</option>
+            {this.props.allBoardgames.map((game)=>{
             return (<option key={game.id} value={game.id}>{game.name}</option>)
         })}
-         
-         
         </select>
         <br />
         <h3>Pick a date and time!</h3>
