@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Container from "@material-ui/core/Container";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
 
 class EditEvent extends Component {
   componentDidMount() {
@@ -53,20 +56,22 @@ class EditEvent extends Component {
       <Container>
         <h1>Change Event</h1>
         <h3>Choose a game</h3>
-
-        <select
+<FormControl>
+        <Select
+        displayEmpty
           id="game_name"
           onChange={(event) => this.handleChange(event, "game_id")}
-        ><option defaultValue> Pick a game</option>
+        ><MenuItem defaultValue> Pick a game</MenuItem>
           {this.props.allBoardgames.map((game) => {
             return (
                
-              <option key={game.id} value={game.id}>
+              <MenuItem key={game.id} value={game.id}>
                 {game.name}
-              </option>
+              </MenuItem>
             );
           })}
-        </select>
+        </Select>
+        </FormControl>
         <br />
         <h3>Choose a date and time</h3>
         <DatePicker

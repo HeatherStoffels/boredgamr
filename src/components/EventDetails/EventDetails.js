@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 
 import "./EventDetails.css";
 
@@ -22,8 +23,9 @@ class EventDetails extends Component {
   render() {
     return (
       <div className="details">
+          <Container>
         <Grid>
-          <h1>Gamenight Details</h1>
+          <h1>Event Details</h1>
           <h2>{this.props.eventDetails.game_name}</h2>
           <h3>
             {moment(this.props.eventDetails.date_time).format(
@@ -63,6 +65,7 @@ class EventDetails extends Component {
             </Button>
           </Link>
         </Grid>
+        </Container>
       </div>
     );
   }

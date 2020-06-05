@@ -38,8 +38,8 @@ class EventList extends Component {
                 <Box m={1} p={1}>
                   <Card>
                     <CardActionArea>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {event.name}
+                      <Typography gutterBottom variant="h6" component="h2">
+                        {moment(event.date_time).format("MMMM Do YYYY, h:mm a")}{" "}
                       </Typography>
                       <br />
                       <Typography variant="body1">Hosted By: {event.username}</Typography>
@@ -51,7 +51,7 @@ class EventList extends Component {
                         component="img"
                       />
                       <CardContent>
-                        {moment(event.date_time).format("MMMM Do YYYY, h:mm a")}{" "}
+                      {event.name}
                       </CardContent>
                     </CardActionArea>
                     <CardActions>
