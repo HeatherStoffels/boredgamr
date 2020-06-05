@@ -35,9 +35,15 @@ If you would like to name your database something else, you will need to change 
 
 * Run `npm install`
 * npm install react-datepicker
+* npm install @sendgrid/mail
+* npm install @material-ui/core 
+* npm install moment
+
 * Create a `.env` file at the root of the project and paste this line into the file:
     ```
     SERVER_SESSION_SECRET=superDuperSecret
+    SENDGRID_API_KEY= your sendgrid api key
+    SENDGRID_FROM_EMAIL= your email address
     ```
     While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
 * Start postgres if not running already by using `brew services start postgresql`
