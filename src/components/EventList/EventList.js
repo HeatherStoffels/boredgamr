@@ -29,7 +29,7 @@ class EventList extends Component {
   render() {
     return (
       <Container maxWidth={false}>
-        <h2>Event List</h2>
+        <h2>Upcoming Events List</h2>
 
         <Grid container>
           {this.props.events.map((event) => {

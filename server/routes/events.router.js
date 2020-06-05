@@ -9,7 +9,8 @@ router.get("/", (req, res) => {
             SELECT "user"."id" as user_id, username, events.id as events_id, date_time, picture, boardgame.id as game_id, name, player
             FROM "user"
             JOIN events on events.host_id = "user"."id"
-            JOIN boardgame on boardgame.id = events.game_id;
+            JOIN boardgame on boardgame.id = events.game_id
+            ORDER BY date_time ASC;
         `;
   pool
     .query(sqlText)

@@ -17,8 +17,8 @@ router.post("/", rejectUnauthenticated, (req, res) => {
       to: req.user.email,
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Boredgamr Event",
-      text: "and easy to do anywhere, even with Node.js",
-      html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+      text: "Thanks for creating an event! ",
+      html: "<strong>More details to follow.</strong>",
     };
 
     sgMail.send(msg);
