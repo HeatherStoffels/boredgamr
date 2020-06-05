@@ -6,8 +6,6 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 
-import "./EventDetails.css";
-
 class EventDetails extends Component {
   handleClick = (e) => {
     console.log("click value=", e.currentTarget.value);
@@ -22,8 +20,7 @@ class EventDetails extends Component {
 
   render() {
     return (
-      <div className="details">
-          <Container>
+      <Container>
         <Grid>
           <h1>Event Details</h1>
           <h2>{this.props.eventDetails.game_name}</h2>
@@ -65,8 +62,7 @@ class EventDetails extends Component {
             </Button>
           </Link>
         </Grid>
-        </Container>
-      </div>
+      </Container>
     );
   }
 }

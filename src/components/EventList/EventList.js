@@ -69,29 +69,6 @@ class EventList extends Component {
                   </Card>
                 </Box>
               </Grid>
-              //   <li>
-              //     {event.name}
-              //     <br />
-              //     Host: {event.username} <br />
-              //     {moment(event.date_time).format("MMMM Do YYYY, h:mm a")}{" "}
-              //     <img
-              //       src={event.picture}
-              //       top
-              //       width="100px"
-              //       alt={event.game_name}
-              //     />
-              //     <br />
-              //     <Link to="/details" underline="none">
-              //       <Button
-              //         size="small"
-              //         variant="contained"
-              //         value={parseInt(event.events_id)}
-              //         onClick={this.handleClick}
-              //       >
-              //         More Info
-              //       </Button>
-              //     </Link>
-              //   </li>
             );
           })}
         </Grid>
