@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 
+
 import "./EventList.css";
 
 class EventList extends Component {
@@ -41,7 +42,7 @@ class EventList extends Component {
                         {event.name}
                       </Typography>
                       <br />
-                      <Typography variant="body2">Hosted By: {event.username}</Typography>
+                      <Typography variant="body1">Hosted By: {event.username}</Typography>
 
                       <CardMedia
                         width={100}
