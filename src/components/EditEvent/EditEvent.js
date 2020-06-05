@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Container from "@material-ui/core/Container";
 
 class EditEvent extends Component {
   componentDidMount() {
@@ -49,7 +50,7 @@ class EditEvent extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <h1>Change Event</h1>
         <h3>Choose a game</h3>
 
@@ -80,7 +81,7 @@ class EditEvent extends Component {
         />
 
         <button onClick={this.handleClick}>Change Event</button>
-      </div>
+      </Container>
     );
   }
 }
