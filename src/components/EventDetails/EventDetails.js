@@ -36,7 +36,7 @@ class EventDetails extends Component {
           <img
             src={this.props.eventDetails.picture}
             alt={this.props.eventDetails.game_name}
-            width="100px"
+            width="300px"
           />
           <h3>
             Number of Players: {this.props.eventDetails.number_of_players}
