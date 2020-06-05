@@ -13,7 +13,8 @@ router.get("/", rejectUnauthenticated, (req, res) => {
     from events 
     join "user" on events.host_id = "user".id
     join boardgame on events.game_id = boardgame.id
-    where "user".id = $1;
+    where "user".id = $1
+    ORDER BY date_time ASC;
         `;
   pool
     .query(sqlText, [req.user.id])
