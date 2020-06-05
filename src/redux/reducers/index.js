@@ -21,10 +21,10 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   events,// will have an id attached to either hosting or attending
   gameDetails, // will have a game_name stored in DB
-  allBoardgames,
+  allBoardgames, // will call for all boardgames in DB
   myEvents, // will call for all events user is attending
   eventDetails, // will call for specific event info
-  hostedEvents,
+  hostedEvents, // will get all events hosted for a user. 
 });
 
 export default rootReducer;

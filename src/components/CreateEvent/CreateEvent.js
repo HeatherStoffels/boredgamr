@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
+//material UI imports
 import { Container, Button } from "@material-ui/core";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -11,13 +12,15 @@ import FormControl from "@material-ui/core/FormControl";
 class CreateEvent extends Component {
   componentDidMount() {
     this.props.dispatch({ type: "GET_ALL_GAMES" });
+    // sends dispatch to get all games in database.
   }
-
+  // data to be sent when a new event is created.
   state = {
     host_id: this.props.user.id,
     game_id: "",
     date_time: new Date(),
   };
+  // This data will update each time the user clicks something.
   handleChange = (event, property) => {
     switch (property) {
       case "game_id":
@@ -32,11 +35,12 @@ class CreateEvent extends Component {
         return this.state;
     }
   };
+
   handleClick = () => {
     this.props.dispatch({ type: "NEW_EVENT", payload: this.state });
+    // sends a dispatch to POST a new event that was created.
   };
   render() {
-   
     return (
       <Container>
         <h3>Pick a game</h3>

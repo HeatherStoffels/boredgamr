@@ -43,7 +43,9 @@ class App extends Component {
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <ProtectedRoute exact path="/host" component={HostedEvents} />
+            {/* This page will allow logged in users to edit their hosted events. */}
             <ProtectedRoute exact path="/edit" component={EditEvent} />
+            {/* This page will show more information about a specific event. */}
             <ProtectedRoute exact path="/details" component={EventDetails} />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

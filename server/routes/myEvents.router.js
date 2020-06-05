@@ -24,7 +24,6 @@ router.get("/", (req, res) => {
 });
 
 // POST /myevents
-// Body: {user: [user id], event: [event id]}
 router.post("/", (req, res) => {
   const query = `INSERT INTO user_events ("user_id", "event_id") VALUES ($1, $2)`;
   const body = [req.body.user, req.body.event];
@@ -38,7 +37,8 @@ router.post("/", (req, res) => {
       res.sendStatus(500);
     });
 });
-
+// DELETE / myevents
+// Deletes user attending event hosted by another user. 
 router.delete("/:id", (req, res) =>{
     const sqlText = `delete from user_events where user_id = $1 and event_id = $2;`;
     pool

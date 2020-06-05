@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+// import moment for date and time rendering
 import moment from "moment";
+// imports for Material UI
 import Button from "@material-ui/core/Button";
 import { Container } from "@material-ui/core";
 import Table from "@material-ui/core/Table";
@@ -10,19 +12,21 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import TableContainer from "@material-ui/core/TableContainer";
-
+// CSS file for myEvents.
 import "./MyEventList.css";
 
 class MyEventsList extends Component {
   componentDidMount() {
     this.props.dispatch({ type: "GET_MY_EVENTS", payload: this.props.user.id });
+    // on page load, this will fetch all events the user has signed up to attend.
   }
   handleDeleteEvent = (e) => {
     this.props.dispatch({
       type: "DELETE_EVENT_USER_ATTENDING",
       payload: parseInt(e.currentTarget.value),
+      // this will allow a user to remove themselves from the list of attendees to an event
+      // hosted by someone else.
     });
-    // console.log("in handleclick,", this.props.user.id, parseInt(e.currentTarget.value));
   };
 
   render() {
@@ -39,7 +43,6 @@ class MyEventsList extends Component {
                 <TableCell>Changed My Mind</TableCell>
               </TableRow>
             </TableHead>
-
             <TableBody>
               {this.props.myEvents.map((event) => (
                 <TableRow key={event.id}>

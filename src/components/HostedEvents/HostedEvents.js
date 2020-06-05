@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+// import moment for displaying date and time
 import moment from "moment";
-import Container from "@material-ui/core/Container"
+// imports from Material UI
+import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -17,19 +19,21 @@ class HostedEvents extends Component {
     this.props.dispatch({
       type: "GET_ALL_HOSTED_EVENTS",
       payload: this.props.user.id,
+      // when document loads, all hosted events are fetched and displayed.
     });
   }
   handleClickDelete = (e) => {
     this.props.dispatch({
       type: "DELETE_EVENT_BY_ID",
       payload: parseInt(e.currentTarget.value),
+      // when clicked, this specific event will be deleted from database and DOM.
     });
   };
   handleClickEdit = (e) => {
-  
     this.props.dispatch({
       type: "GET_EVENT_BY_ID",
       payload: parseInt(e.currentTarget.value),
+      // this will bring user to the edit page and allow them to update a specific event.
     });
   };
 

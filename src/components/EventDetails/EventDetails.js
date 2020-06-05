@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+// import moment for date/time display
 import moment from "moment";
+//imports from Material UI
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 
 class EventDetails extends Component {
   handleClick = (e) => {
-    console.log("click value=", e.currentTarget.value);
     this.props.dispatch({
       type: "JOIN_EVENT_WITH_ID",
       payload: {
         user: this.props.user.id,
         event: parseInt(e.currentTarget.value),
+        // dispatches a POST request for a user to join an event made by another person.
       },
     });
   };
@@ -75,5 +77,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-// this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(EventDetails);
