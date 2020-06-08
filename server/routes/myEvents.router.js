@@ -10,7 +10,8 @@ router.get("/", (req, res) => {
   join "user" on events.host_id = "user".id
   join boardgame on events.game_id = boardgame.id
   join user_events on events.id = user_events.event_id
-  where user_events.user_id = $1;`;
+  where user_events.user_id = $1
+  ORDER BY date_time ASC;`;
   const body = [req.user.id];
   pool
     .query(sqlText, body)

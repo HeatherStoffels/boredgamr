@@ -19,15 +19,11 @@ const withDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // logger will only be added to your project if your in development mode
 const middlewareList =
   process.env.NODE_ENV === "development"
-    ? [sagaMiddleware
+    ? [
+        sagaMiddleware,
         // , logger
-    ]
+      ]
     : [sagaMiddleware];
-
-// const initialState = {
-//   user: [],
-//   events: [],
-// };
 
 const store = createStore(
   // tells the saga middleware to use the rootReducer
